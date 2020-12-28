@@ -25,6 +25,10 @@ int findOverlapArea(int rect1[], int rect2[])
 {
     int xDist = findDist(rect1[0], rect1[2], rect2[0], rect2[2]);
     int yDist = findDist(rect1[1], rect1[3], rect2[1], rect2[3]);
+    if (xDist < 0 || yDist < 0)
+    {
+        return 0;
+    }
 
     return xDist * yDist;
 }
@@ -32,7 +36,7 @@ int findOverlapArea(int rect1[], int rect2[])
 int main()
 {
     int rect1[] = {0, 0, 1, 1};
-    int rect2[] = {1, 0, 2, 1};
+    int rect2[] = {2, 2, 3, 3};
 
     int area = findOverlapArea(rect1, rect2);
     if (area > 0)
